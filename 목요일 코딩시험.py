@@ -29,8 +29,8 @@ class Calculator:
                     if not self.process_parentheses():
                         raise ValueError("Mismatched parentheses")  # 괄호 쌍의 수가 맞지 않으면 예외 발생
                 elif char in {'+', '-', '*', '/'}:
-                    if self.is_empty() or self.stack[-1] not in {'+', '-', '*', '/'}:
-                        raise ValueError("Invalid expression")  # 연산자가 올바르게 위치하지 않은 경우 예외 발생
+                    if self.is_empty() or self.stack[-1] not in {'+', '-', '*', '/'}: # stack의 맨위 항목이 연산자가 아니라면 에러 발생 ex) 1,2,3이 들어가있다면 어떤 숫자와 어떤 숫자를 어떤 연산자로 계산할지를 알 수 없다.
+                        raise ValueError("Invalid expression")  
                     operand2, operand1 = self.pop(), self.pop()
                     result = self.perform_operation(operand1, operand2, char)
                     self.push(result)
@@ -82,10 +82,10 @@ class EngineerCalculator(Calculator):  # Calculator 클래스를 상속받는 En
         return math.sin(math.radians(angle))  # 삼각함수 계산 (각도를 라디안으로 변환)
 
     def cos(self, angle):
-        return math.cos(math.radians(angle))  # 삼각함수 계산 (각도를 라디안으로 변환)
+        return math.cos(math.radians(angle))  
 
     def tan(self, angle):
-        return math.tan(math.radians(angle))  # 삼각함수 계산 (각도를 라디안으로 변환)
+        return math.tan(math.radians(angle))  
 
 
 
