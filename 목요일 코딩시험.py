@@ -69,15 +69,23 @@ class Calculator:
 
 #문제2
 import math
-class EngineerCalculator(Calculator):
-    def factorial(self,n):
+
+class EngineerCalculator(Calculator):  # Calculator 클래스를 상속받는 EngineerCalculator 클래스 정의
+
+    def factorial(self, n):
         if n == 0 or n == 1:
             return 1
         else:
-            return self.factorial(n-1)*n
-    def sin(self,angle):
-        return math.sin(math.radians(angle))
-    def cos(self,angle):
-        return math.cos(math.radians(angle))
-    def tan(self,angle):
-        return math.tan(math.radians(angle))
+            return n * self.factorial(n - 1)  # 재귀적으로 팩토리얼을 계산하는 메서드
+
+    def sin(self, angle):
+        return math.sin(math.radians(angle))  # 삼각함수 계산 (각도를 라디안으로 변환)
+
+    def cos(self, angle):
+        return math.cos(math.radians(angle))  # 삼각함수 계산 (각도를 라디안으로 변환)
+
+    def tan(self, angle):
+        return math.tan(math.radians(angle))  # 삼각함수 계산 (각도를 라디안으로 변환)
+
+
+
